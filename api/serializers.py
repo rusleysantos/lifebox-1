@@ -14,6 +14,8 @@ class DetalheSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ViagemSerializer(serializers.ModelSerializer):
+    detalhes = DetalheSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Viagem
         fields = '__all__'

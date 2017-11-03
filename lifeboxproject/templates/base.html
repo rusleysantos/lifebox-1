@@ -1,8 +1,15 @@
 {% load staticfiles %}
 {% load bootstrap4 %}
+{% load socketio_tags %}
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+  <head>      
+      {% socketio %}
+      <script>
+          var socket = new io.Socket();
+          socket.connect();
+          // etc
+      </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>

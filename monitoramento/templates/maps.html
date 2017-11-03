@@ -10,19 +10,29 @@
 
 <!--Scripts-->
 {% block custom_js %}
-<script src="{% static 'js/common/leaflet-src.js' %}"></script>
+<!--<script src="{% static 'js/common/leaflet-src.js' %}"></script>
 <script src="{% static 'js/maps/leaflet-realtime.min.js' %}"></script>
-<script src="{% static 'js/maps/index.js' %}"></script> 
+<script src="{% static 'js/maps/index.js' %}"></script> -->
 {% endblock%}
 
 <!--Css-->
 {% block custom_css %}
-<link rel="stylesheet" href="{% static 'css/common/leaflet.css' %}">
-<link rel="stylesheet" href="{% static 'css/maps/maps.css' %}"> {% endblock%}
+<link rel="stylesheet" href="{% static 'lib/leaflet/leaflet.css' %}">
+<link rel="stylesheet" href="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.css' %}">
+<link rel="stylesheet" href="{% static 'css/maps/maps.css' %}">
+{% endblock%}
 
 <!--Conteudo-->
 {% block content %}
 <br><br>
 <div id="map" style="height:500px !important; position:relative"></div>
+
+<script src="{% static 'js/maps/index.js' %}"></script> 
+<script src="{% static 'lib/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.min.js' %}"></script>
+
+<script type="text/javascript">
+    initmap();
+</script>
 
 {% endblock %}

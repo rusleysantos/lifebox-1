@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'monitoramento',
     'relatorios',
     'rest_framework',
-    'api'
+    'api',
+    'django_socketio'
 ]
 
 MIDDLEWARE = [
@@ -163,5 +164,6 @@ BOOTSTRAP4 = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-    )
+    ),
+    'COERCE_DECIMAL_TO_STRING': False
 }

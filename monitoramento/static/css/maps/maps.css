@@ -21,3 +21,7 @@
     bottom: 0;
     right: 0;
 }
+
+.awesome-marker-icon-white {
+    background-position: -576px 0 !important;
+}
