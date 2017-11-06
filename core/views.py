@@ -145,25 +145,15 @@ def viagem_editar(request, pk):
 # Alteração de status
 def status_alterar(request, pk, cod):
     item = get_object_or_404(Viagem, pk=pk)
-    itemStatus = Status.objects.get(codStatus = cod)
-    
-    print(itemStatus.dscStatus)
-    
-    item.status = itemStatus
+    item_status = Status.objects.get(codStatus = cod)
+
+    print(item_status.dscStatus)
+
+    item.status = item_status
     item.save()
-    
-    return JsonResponse({'result': 'ok', 'object':itemStatus.dscStatus})
-    '''
-    if request.method == "POST":
-        form = ViagemForm(request.POST, instance=item)
-        if form.is_valid():
-            item = form.save(commit=False)
-            item.save()
-            return redirect('viagem_pesquisar')
-    else:
-        form = ViagemForm(instance=item)
-    return render(request, 'viagem/formulario.html', {'form': form})'''
-    
+
+    return JsonResponse({'result': 'ok', 'object':item_status.dscStatus})
+
 
 ###################################################################################################
 # carrega página sobre a história e conceito do lifebox
