@@ -10,29 +10,50 @@
 
 <!--Scripts-->
 {% block custom_js %}
-<!--<script src="{% static 'js/common/leaflet-src.js' %}"></script>
-<script src="{% static 'js/maps/leaflet-realtime.min.js' %}"></script>
-<script src="{% static 'js/maps/index.js' %}"></script> -->
-{% endblock%}
+<script src="{% static 'js/maps/jquery.sparkline.min.js' %}"></script>
+<script src="{% static 'lib/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.min.js' %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> {% endblock%}
 
 <!--Css-->
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'lib/leaflet/leaflet.css' %}">
 <link rel="stylesheet" href="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.css' %}">
 <link rel="stylesheet" href="{% static 'css/maps/maps.css' %}">
-{% endblock%}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css"> {% endblock%}
 
 <!--Conteudo-->
 {% block content %}
-<br><br>
+<br>
+<br>
 <div id="map" style="height:500px !important; position:relative"></div>
 
-<script src="{% static 'js/maps/index.js' %}"></script> 
-<script src="{% static 'lib/leaflet/leaflet.js' %}"></script>
-<script src="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.min.js' %}"></script>
+<script src="{% static 'js/maps/graficoTemperatura.js' %}"></script>
+<script src="{% static 'js/maps/index.js' %}"></script>
 
 <script type="text/javascript">
     initmap();
 </script>
 
+<!-- Modal -->
+<div class="modal fade" id="modalViagem" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Viagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="graficoTemperatura"></div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
 {% endblock %}

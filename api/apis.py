@@ -15,6 +15,10 @@ class ViagemViewSet(viewsets.ModelViewSet):
     queryset = Viagem.objects.all()
     serializer_class = ViagemSerializer
 
+class ViagemAtivasViewSet(viewsets.ModelViewSet):
+    queryset = Viagem.objects.filter(status=3)
+    serializer_class = ViagemSerializer
+
 class DetalheViewSet(viewsets.ModelViewSet):
     queryset = Detalhe.objects.all()
     serializer_class = DetalheSerializer
