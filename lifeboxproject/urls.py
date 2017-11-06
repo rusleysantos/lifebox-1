@@ -9,5 +9,4 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     url(r'^cadastro/', include('core.urls')),
     url(r'^api/', include('api.urls')),
-    url(r'^io/', include('django_socketio.urls')),
 ]

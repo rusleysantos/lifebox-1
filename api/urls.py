@@ -8,6 +8,7 @@ from api import apis
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'viagem', apis.ViagemViewSet)
+router.register(r'viagem-ativas', apis.ViagemAtivasViewSet)
 router.register(r'detalhe', apis.DetalheViewSet)
 
 urlpatterns = [

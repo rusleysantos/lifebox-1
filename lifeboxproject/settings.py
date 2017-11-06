@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'relatorios',
     'rest_framework',
     'api',
-    'django_socketio'
 ]
 
 MIDDLEWARE = [
