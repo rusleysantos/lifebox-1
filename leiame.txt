@@ -1,0 +1,46 @@
+********************************COMANDOS********************************
+
+#Exportar dados para json:
+python manage.py dumpdata -a  > dados.json --indent=2
+
+#Importar de um json:
+python manage.py loaddata dados.json
+
+#Rodar aplicação no cloud9:
+python manage.py runserver $IP:$PORT
+
+#Limpar ambiente virtual:
+pip uninstall -r requeriments.txt
+
+#Resetar Branch com arquivos remotos:
+git fetch
+git clean -f
+git reset --hard <sprint_name>
+git clean -f 
+git pull
+
+#Definição de banco no pythonanywhere:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lifebox$default',
+        'USER': 'lifebox',
+        'PASSWORD': 'vermelho@123',
+        'HOST': 'lifebox.mysql.pythonanywhere-services.com',
+    }
+}
+
+#Definição de banco local:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
+#Get versions package:
+https://pypi.python.org/pypi/{package_name}/json
+
+#Remove all packages pip:
+pip freeze | xargs pip uninstall -y
