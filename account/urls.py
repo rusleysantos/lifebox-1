@@ -12,8 +12,8 @@ from account import views
 
 urlpatterns = [
 
-    url(r'^$', views.dashboard, name='dashboard'),
-    url(r'^register/$', views.register, name='register'),
+    #url(r'^$', views.dashboard, name='dashboard'),
+    #url(r'^register/$', views.register, name='register'),
 
     # login logout
     url(r'^login/$', login, name='login'),

@@ -13,12 +13,14 @@ body {
 }
 
 a {
-    color: #ff5400;
+    /*color: #ff5400;*/
+    color: rgba(0,0,0,.5);
 }
 
 a:hover {
     opacity: 0.8;
-    color: #ff5400;
+    /*color: #ff5400;*/
+    color: rgba(0,0,0,.5);
     text-decoration: none;
 }
 
@@ -82,4 +84,63 @@ i.logo {
 @-webkit-keyframes colorchange{
     0%   {color: grey;}
     100% {color: #ff5050;}
+}
+
+label.title-full-width {
+    display: block;
+    color: white;
+    background-color: rgba(11, 98, 164, 0.59);
+    border-radius: 5px;
+    padding: 9px 0 9px 15px;
+}
+
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    height: 100%;
+}
+
+#custom-search-input > .list-group{
+    max-height: 460px;
+    overflow-y: scroll;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+#aba-dados-viagem{
+    background-color: rgba(11, 98, 164, 0.59);
+    border-radius: 5px
+}
+
+#aba-dados-viagem .nav-item .nav-link{
+    color: white;
+}
+#aba-dados-viagem .nav-item .nav-link.active{
+    background-color: rgba(37, 115, 174, 0.59);
 }

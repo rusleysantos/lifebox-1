@@ -19,6 +19,8 @@ class HospitalSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DetalheSerializer(serializers.ModelSerializer):
+    #imeiEquipamento = serializers.CharField(max_length=22)
+    
     class Meta:
         model = Detalhe
         fields = '__all__'
@@ -28,6 +30,13 @@ class ViagemSerializer(serializers.ModelSerializer):
     caixa = CaixaSerializer(read_only=True)
     localPartida = HospitalSerializer(read_only=True)
     localChegada = HospitalSerializer(read_only=True)
+    
+    class Meta:
+        model = Viagem
+        fields = '__all__'
+        
+class ViagemSimpleSerializer(serializers.ModelSerializer):
+    caixa = CaixaSerializer(read_only=True)
     
     class Meta:
         model = Viagem

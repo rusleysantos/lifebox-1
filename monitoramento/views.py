@@ -12,3 +12,7 @@ from django.conf import settings
 @login_required
 def mapas(request):
     return render(request, 'maps.html')
+
+@login_required
+def mapaplayback(request, pk):
+    return render(request, 'example_1.html')

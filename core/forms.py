@@ -11,7 +11,7 @@ class EquipamentoForm(forms.ModelForm):
         model = Equipamento
         fields = ('nome', 'imeiEquipamento', 'telefone', 'operadora', 'imeiSimCard')
         widgets = {
-            'id': TextInput(attrs={'readonly': 'True'}),
+            'nome': TextInput(attrs={'readonly': 'True'}),
             'imeiEquipamento': TextInput(attrs={'class': 'imeiTracker'}),
             'telefone': TextInput(attrs={'class': 'phone'}),
             'imeiSimCard': TextInput(attrs={'class': 'imeiSimCard'}),
@@ -25,9 +25,9 @@ class CaixaForm(forms.ModelForm):
        model = Caixa
        fields = ('idCaixa', 'autorizacao', 'corCaixa', 'informacaoAdicional')
        widgets = {
-                'id': TextInput(attrs={'readonly': 'True'}),
-                   'corCaixa': TextInput(attrs={'type': 'color'}),
-                   }
+           'idCaixa': TextInput(attrs={'readonly': 'True'}),
+           'corCaixa': TextInput(attrs={'type': 'color'}),
+       }
 
 ###################################################################################################
 # Formulário Hospital:
@@ -49,6 +49,10 @@ class HospitalForm(forms.ModelForm):
 ###################################################################################################
 # Formulário Viagem:
 class ViagemForm(forms.ModelForm):
-   class Meta:
-       model = Viagem
-       fields = ('localPartida', 'localChegada', 'caixa', 'equipamento')
+    class Meta:
+        model = Viagem
+        fields = ('localPartida', 'localChegada', 'caixa', 'equipamento')
+
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField(label = '' , widget = forms.FileInput(attrs={'accept':"*.*", 'class':'custom-file-input'}))

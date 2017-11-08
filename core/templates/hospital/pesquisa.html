@@ -1,15 +1,5 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% load bootstrap4 %}
-{% block title %}LifeBox - Pesquisa Hospitais {% endblock %}
-{% block custom_js %}
-<!--Este bloco é destinado a biblioteca datatables-->
-<link rel="stylesheet" href="{% static '/js/datatables/jquery.dataTables.min.css' %}" >
-<script src="{% static '/js/datatables/jquery-1.12.4.js' %}"></script>
-<script src="{% static '/js/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static '/js/datatables/config.js' %}"></script>
-{% endblock%}
-
+{% extends "cadastro_base.html" %}
+{% block title %}LifeBox - Hospitais {% endblock %}
 {% block content %}
 <div class="jumbotron">
 	<h2><i class="glyphicon glyphicon-home"></i> Hospitais</h2>

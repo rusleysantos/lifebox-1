@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+{% block custom_js %}
+<!--Este bloco é destinado a biblioteca datatables-->
+<link rel="stylesheet" href="{% static '/js/datatables/jquery.dataTables.min.css' %}" >
+<link rel="stylesheet" href="{% static '/js/datatables/dataTables.bootstrap4.min.css' %}" >
+
+<!--<script src="{% static '/js/datatables/jquery-1.12.4.js' %}"></script>-->
+<script src="{% static '/js/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static '/js/datatables/config.js' %}"></script>
+<script src="{% static '/js/datatables/dataTables.bootstrap4.min.js' %}"></script>
+{% endblock%}

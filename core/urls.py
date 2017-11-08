@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^viagem/(?P<pk>\d+)/status/(?P<cod>\d+)/', views.status_alterar, name='status_editar'),
     url(r'^sobre/$', views.sobre, name='sobre'),
     url(r'^equipe/$', views.equipe, name='equipe'),
+    #url(r'^viagem/(?P<pk>\d+)/upload/', views.upload_file, name='upload_file'),
 ]

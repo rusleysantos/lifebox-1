@@ -1,15 +1,7 @@
-{% extends "base.html" %}
+{% extends "cadastro_base.html" %}
 
-{% load staticfiles %}
-{% load bootstrap4 %}
-{% block title %}LifeBox - Listagem de Caixas {% endblock %}
-{% block custom_js %}
-<!--Este bloco é destinado a biblioteca datatables-->
-<link rel="stylesheet" href="{% static '/js/datatables/jquery.dataTables.min.css' %}" >
-<script src="{% static '/js/datatables/jquery-1.12.4.js' %}"></script>
-<script src="{% static '/js/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static '/js/datatables/config.js' %}"></script>
-{% endblock%}
+{% block title %}LifeBox - Caixas {% endblock %}
+
 
 {% block content %}
 <div class="jumbotron">

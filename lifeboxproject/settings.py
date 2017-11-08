@@ -130,7 +130,7 @@ STATICFILES_DIRS = (
     os.path.join(MASTER_BASE_DIR, 'static'),
 )
 
-LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_REDIRECT_URL = reverse_lazy('exibir_mapa')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 
@@ -164,5 +164,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'COERCE_DECIMAL_TO_STRING': False
+    'COERCE_DECIMAL_TO_STRING': False,
 }
+
+# MANIPULADORES DE UPLOADS DE ARQUIVOS
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler"
+]

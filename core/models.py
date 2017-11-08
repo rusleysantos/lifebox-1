@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 ###################################################################################################
 # Banco Equipamento:
@@ -23,6 +24,8 @@ class Equipamento(models.Model):
 
     def publish(self):
         self.save()
+        self.nome = "EQ" + str(self.id).zfill(3)
+        self.save()
 
     def __str__(self):
         return self.nome
@@ -37,6 +40,8 @@ class Caixa(models.Model):
 
 
     def publish(self):
+        self.save()
+        self.idCaixa = "CX" + str(self.id).zfill(3)
         self.save()
 
     def __str__(self):
@@ -109,9 +114,11 @@ class Viagem(models.Model):
 class Detalhe(models.Model):
     numLongitudeDeta = models.DecimalField('Longitude', max_digits=9, decimal_places=6)
     numLatitudeDeta = models.DecimalField('Latitude', max_digits=9, decimal_places=6)
-    numTemperaturaDeta = models.IntegerField('Temperatura')
-    indVirouDeta = models.BooleanField('Virou?', )
-    indTombouDeta = models.BooleanField('Tombou?', )
+    numTemperaturaDeta = models.DecimalField('Temperatura', max_digits=4, decimal_places=1)
+    indVirouDeta = models.BooleanField('Virou?')
+    indTombouDeta = models.BooleanField('Tombou?')
+    datDateDeta = models.DateField('Data', default=datetime.now())
+    #imeiEquipamento = models.CharField('IMEI do Equipamento', max_length=22)
     viagem = models.ForeignKey('Viagem', related_name='detalhes', on_delete=models.CASCADE)
 
     def __str__(self):

@@ -11,6 +11,9 @@
       <div class="col-sm-12">
         <div class="btn-group">
           <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar </button>
+          {% if uploadform != None%}
+          <button type="button" class="btn btn-info my-2 my-sm-0" data-toggle="modal" data-target="#modalUpload">Carregar Dados Offline</button>
+          {%endif%}
           <a href="{% url 'viagem_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar </a>
         </div>
       </div>
@@ -35,10 +38,37 @@
     </div>
     <div class="btn-group">
       <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar </button>
+      {% if uploadform != None%}
+      <button type="button" class="btn btn-info my-2 my-sm-0" data-toggle="modal" data-target="#modalUpload">Carregar Dados Offline</button>
+      {%endif%}
       <a href="{% url 'viagem_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar </a>
     </div>
   </form>
+  
+  {% if uploadform != None%}
+  <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Carregar Arquivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label class="custom-file">
+                  {% bootstrap_field uploadform.file%}
+                  <span class="custom-file-control"></span>
+                </label>
+                {% bootstrap_form uploadform %}
+                {% bootstrap_button "Enviar" button_type="submit" button_class="btn-primary" %}
+              </div>
+          </div>
+      </div>
+    </div>
+    {% endif %}
 </div>
-
 {% endblock %}
+
+
 

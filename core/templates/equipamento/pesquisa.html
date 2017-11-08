@@ -1,15 +1,5 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% load bootstrap4 %}
-{% block title %}LifeBox - Lista de Equipamentos {% endblock %}
-{% block custom_js %}
-<!--Este bloco é destinado a biblioteca datatables-->
-<link rel="stylesheet" href="{% static '/js/datatables/jquery.dataTables.min.css' %}" >
-<script src="{% static '/js/datatables/jquery-1.12.4.js' %}"></script>
-<script src="{% static '/js/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static '/js/datatables/config.js' %}"></script>
-{% endblock%}
-
+{% extends "cadastro_base.html" %}
+{% block title %}LifeBox - Equipamentos {% endblock %}
 {% block content %}
 <div class="jumbotron" >
   <h2><i class="glyphicon glyphicon-hdd"></i> Equipamentos</h2>
@@ -45,18 +35,6 @@
           <td>{{equipamento.telefone}}</td>
           <td>{{equipamento.operadora}}</td>
           <td>{{equipamento.imeiSimCard}}</td>
-          <!--
-            {% if equipamento.caixa == None %}
-              <td></td>
-            {% else%}
-              <td>{{equipamento.caixa}}</td>
-            {% endif %}
-          <td>
-            <div style="color: {{equipamento.cor}}">
-              <i class="ion-ios-gear"></i>
-            </div>
-          </td>
-        -->
         </tr>
       {% endfor %}
     </tbody>

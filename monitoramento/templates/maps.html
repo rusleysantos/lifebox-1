@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_map.html" %}
 <!---->
 {% load account_tags %}
 <!---->
@@ -12,6 +12,7 @@
 {% block custom_js %}
 <script src="{% static 'js/maps/jquery.sparkline.min.js' %}"></script>
 <script src="{% static 'lib/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'lib/underscore/underscore-min.js' %}"></script>
 <script src="{% static 'lib/leaflet.awesome-markers/leaflet.awesome-markers.min.js' %}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> {% endblock%}
@@ -27,14 +28,29 @@
 {% block content %}
 <br>
 <br>
-<div id="map" style="height:500px !important; position:relative"></div>
 
-<script src="{% static 'js/maps/graficoTemperatura.js' %}"></script>
-<script src="{% static 'js/maps/index.js' %}"></script>
+<!--Mapa-->
+<div class="row">
+    <div class="col-md-3">
+        <div id="custom-search-input">
+			<div class="input-group col-md-12">
+				<input id="search" type="text" class="form-control input-lg" placeholder="Search" />
+				<span class="input-group-btn">
+					<button class="btn btn-info btn-lg" type="button">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
+			</div>
+			<div class="list-group">
+			    <a href='#' class="list-group-item">Todos</a>
+			</div>
+		</div>
+    </div>
+    <div class="col-md-9">
+        <div id="map" style="height:500px !important; position:relative"></div>
+    </div>
+</div>
 
-<script type="text/javascript">
-    initmap();
-</script>
 
 <!-- Modal -->
 <div class="modal fade" id="modalViagem" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -47,13 +63,93 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div id="graficoTemperatura"></div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="" class="title-full-width"><i class="fa fa-map-o fa-lg"></i> Trajeto:</label>
+                        <div class="card">
+                          <div class="card-block">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="local-partida" style="min-width: 45px"><i class="fa fa-circle-o"></i></span>
+                              <input type="text" id="localPartida" class="form-control" aria-describedby="local-partida" disabled>
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon" id="local-chegada" style="min-width: 45px"><i class="fa fa-map-marker"></i></span>
+                              <input type="text" id="localChegada" class="form-control" aria-describedby="local-chegada" disabled>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <ul id="aba-dados-viagem" class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab"><i class="fa fa-thermometer-half  fa-lg"></i> Temperatura</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab"><i class="fa fa-exclamation-triangle  fa-lg"></i> Ocorrências</a>
+                  </li>
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+                        <div class="card">
+                          <div class="card-block">
+                            <div id="graficoTemperatura"></div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="profile" role="tabpanel">
+                        <div class="card">
+                          <div class="card-block">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>99/99/99 99:99:99</td>
+                                        <td> Virou </td>
+                                    </tr>
+                                    <tr>
+                                        <td>99/99/99 99:99:99</td>
+                                        <td> Tombou </td>
+                                    </tr>
+                                    <tr>
+                                        <td>99/99/99 99:99:99</td>
+                                        <td> Virou </td>
+                                    </tr>
+                                    <tr>
+                                        <td>99/99/99 99:99:99</td>
+                                        <td> Tombou </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="modal-footer">
+            <!-- 
+            <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
-            </div> -->
+            </div> 
+            -->
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/maps/graficoTemperatura.js' %}"></script>
+<script src="{% static 'js/maps/monitoramento.js' %}"></script>
+<script type="text/javascript">
+    initmap();
+    
+    $(function(){
+	    $('#search').keyup(buscarItens);
+    });
+
+</script>
+
 {% endblock %}

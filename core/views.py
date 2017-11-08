@@ -4,10 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 
 from core.models import Equipamento, Caixa, Hospital, Viagem, Status
-from core.forms import EquipamentoForm, CaixaForm, HospitalForm, ViagemForm
+from core.forms import EquipamentoForm, CaixaForm, HospitalForm, ViagemForm, UploadFileForm
 
 ###################################################################################################
 # Cadastro de Equipamentos:
@@ -22,7 +22,7 @@ def equipamento_criar(request):
         form = EquipamentoForm(request.POST)
         if form.is_valid():
             equipamento = form.save(commit=False)
-            equipamento.save()
+            equipamento.publish()
             return redirect('equipamento_pesquisar')
     else:
         form = EquipamentoForm()
@@ -35,7 +35,7 @@ def equipamento_editar(request, pk):
         form = EquipamentoForm(request.POST, instance=equipamento)
         if form.is_valid():
             equipamento = form.save(commit=False)
-            equipamento.save()
+            equipamento.publish()
             return redirect('equipamento_pesquisar')
     else:
         form = EquipamentoForm(instance=equipamento)
@@ -55,7 +55,7 @@ def caixa_criar(request):
         form = CaixaForm(request.POST)
         if form.is_valid():
             caixa = form.save(commit=False)
-            caixa.save()
+            caixa.publish()
             return redirect('caixa_pesquisar')
     else:
         form = CaixaForm()
@@ -69,7 +69,7 @@ def caixa_editar(request, pk):
         form = CaixaForm(request.POST, instance=caixa)
         if form.is_valid():
             caixa = form.save(commit=False)
-            caixa.save()
+            caixa.publish()
             return redirect('caixa_pesquisar')
     else:
         form = CaixaForm(instance=caixa)
@@ -132,13 +132,16 @@ def viagem_editar(request, pk):
     item = get_object_or_404(Viagem, pk=pk)
     if request.method == "POST":
         form = ViagemForm(request.POST, instance=item)
+        uploadform = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
+            handle_uploaded_file(pk, request.FILES['file'])
             item = form.save(commit=False)
             item.save()
             return redirect('viagem_pesquisar')
     else:
+        uploadform = UploadFileForm()
         form = ViagemForm(instance=item)
-    return render(request, 'viagem/formulario.html', {'form': form})
+    return render(request, 'viagem/formulario.html', {'form': form, 'uploadform': uploadform})
 
 
 ################################################################################
@@ -153,16 +156,6 @@ def status_alterar(request, pk, cod):
     item.save()
     
     return JsonResponse({'result': 'ok', 'object':itemStatus.dscStatus})
-    '''
-    if request.method == "POST":
-        form = ViagemForm(request.POST, instance=item)
-        if form.is_valid():
-            item = form.save(commit=False)
-            item.save()
-            return redirect('viagem_pesquisar')
-    else:
-        form = ViagemForm(instance=item)
-    return render(request, 'viagem/formulario.html', {'form': form})'''
     
 
 ###################################################################################################
@@ -176,3 +169,22 @@ def sobre(request):
 @login_required
 def equipe(request):
     return render(request, 'sobre/equipe.html')
+
+###################################################################################################
+# Upload de arquivos da viagem:
+@login_required
+def upload_file(request, pk):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(pk, request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload/upload.html', {'uploadform': form})
+
+
+def handle_uploaded_file(id, f):
+    with open('uploas/viagens/viagem' + id + '.csv', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
