@@ -2,11 +2,36 @@
 {% load staticfiles %}
 {% load bootstrap4 %}
 {% block title %}LifeBox - Nova Viagem{% endblock%}
+
+{% block custom_css %}
+<style type="text/css">
+  #customFile .custom-file-control:lang(en)::after {
+    content: "Selecione um arquivo csv...";
+  }
+  
+  #customFile .custom-file-control:lang(en)::before {
+    content: "Buscar";
+  }
+  
+  /*when a value is selected, this class removes the content */
+  .custom-file-control.selected:lang(en)::after {
+    content: "" !important;
+  }
+  
+  .custom-file {
+    overflow: hidden;
+  }
+  .custom-file-control {
+    white-space: nowrap;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="jumbotron">
   <h2><i class="glyphicon glyphicon-plane"></i> Adicionar Nova Viagem</h2>
 
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col-sm-12">
         <div class="btn-group">
@@ -43,30 +68,39 @@
       {%endif%}
       <a href="{% url 'viagem_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar </a>
     </div>
+    {% if uploadform != None%}
+    <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel">Carregar Arquivo</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label class="custom-file" id="customFile">
+                        {{ uploadform.file }}
+                        <span class="custom-file-control form-control-file"></span>
+                      </label>
+                    </div>
+                  </div>
+                  {% bootstrap_button "Enviar" button_type="submit" button_class="btn-primary" %}
+                </div>
+            </div>
+        </div>
+      </div>
+    {% endif %}
+    
   </form>
   
-  {% if uploadform != None%}
-  <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Carregar Arquivo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <label class="custom-file">
-                  {% bootstrap_field uploadform.file%}
-                  <span class="custom-file-control"></span>
-                </label>
-                {% bootstrap_form uploadform %}
-                {% bootstrap_button "Enviar" button_type="submit" button_class="btn-primary" %}
-              </div>
-          </div>
-      </div>
-    </div>
-    {% endif %}
+  <script type="text/javascript">
+    $('.custom-file-input').on('change',function(){
+      $(this).next('.form-control-file').addClass("selected").html($(this).val());
+    })
+  </script>
 </div>
 {% endblock %}
 

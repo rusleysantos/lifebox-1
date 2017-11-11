@@ -72,6 +72,9 @@ function criarMarcadores(_viagens) {
 			// configura o marcador com o icone, tooltip e variaveis customizadas:
 			var options = {
 				icon: _icon,
+				tooltip: {
+					html: "<b><i class='fa fa-thermometer-empty'></i> Temperatura Atual:</b> " + ultimoDetalhe.numTemperaturaDeta + "ºC."
+				},
 				viagem: {
 					viagemId: viagem.id,
 					hospitalPartida: viagem.localPartida.nome,
@@ -101,8 +104,7 @@ function criarMarcadores(_viagens) {
 			});
 			//##################
 			
-			var marker = L.marker([ultimoDetalhe.numLatitudeDeta, ultimoDetalhe.numLongitudeDeta], options).addTo(map)
-				.bindTooltip("<b><i class='fa fa-thermometer-empty'></i> Temperatura Atual:</b> " + ultimoDetalhe.numTemperaturaDeta + "ºC.");
+			var marker = L.marker([ultimoDetalhe.numLatitudeDeta, ultimoDetalhe.numLongitudeDeta], options).addTo(map);
 			marker.on('click', onMarkerClick); //Adiciona evento que abre o modal.
 			markers.push(marker);
 		}

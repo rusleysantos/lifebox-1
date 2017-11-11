@@ -1,0 +1,132 @@
+html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        
+        /* Just to make things easier to see: */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            padding: 1em;
+        }
+
+        
+        /* The actual hack: */
+        
+        /* Label container: */
+        .file {
+            display: inline-block;
+            padding: 0 0 0 0.5em;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        
+        /* The pseudo input field: */
+        .file::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            
+            /* Bootstrap appearance: */
+            background-color: #fff;
+            border: .075rem solid #ddd;
+            border-radius: .25rem;
+            -webkit-box-shadow: inset 0 .2rem .4rem rgba(0,0,0,.05);
+            box-shadow: inset 0 .2rem .4rem rgba(0,0,0,.05);
+        }
+        
+        /* The pseudo button: */
+        .file::after {
+            content: "Browse";
+            display: inline-block;
+            
+            /* Bootstrap appearance: */
+            background-color: #eee;
+            border: .075rem solid #ddd;
+            border-radius: 0 .25rem .25rem 0;
+            padding: .5rem 1rem;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        
+        
+        .file input[type=file] {
+            cursor: pointer;
+            border: 0 none;
+            width: 12em;
+        }
+        
+        /* -webkit hide the button: */
+        .file input[type=file]::-webkit-file-upload-button {
+            border: 0;
+            padding: 0;
+            margin: 0 ;
+            width: 0;
+            background: transparent;
+        }      
+        
+        /* IE10+ hide the button: */
+        .file input[type=file]::-ms-browse {
+            padding: 0;
+            margin: -1px;
+            width: 0;
+            border: 0;
+            background: transparent;
+        }
+        
+        .file input[type=file]::-ms-value {
+            background: #fff;
+            border: 0;
+        }
+        
+        /* Firefox hide the button: */
+        @supports (-moz-appearance:meterbar) {
+        
+            /* Hide the overflow: */
+            .file {
+                overflow: hidden;
+            }
+            
+            /* Shift right: */
+            .file input[type=file] {
+                margin-left: -6.3em;
+                /* Compensate the width: */
+                width: 18.3em;
+            }
+        }
+        
+        /* IE9 hide the button: (https://jeffclayton.wordpress.com/2014/07/22/internet-explorer-css-hacks-collection/) */
+        @media screen and (min-width:0\0) and (min-resolution:.001dpcm) {
+
+            /*
+                Increase the width of the pseudo button to fully hide the default button*/
+                (Note: there's probably a better way of doing this but it works. Overflow hidden 
+                causes problems with the drop shadow so could maybe fix that instead.) 
+            */
+            .file::after {
+                padding: .5rem 1.1rem;
+            }
+            
+            /*
+                Shift right and force the background colour:
+                (Note it doesn't seem to want to be transparent so this would need to be theme-able) 
+            */
+            .file input[type=file] {
+                background: #fff;
+                margin-right: -6.6em;
+                /* Compensate the width: */
+                width: 18.6em;
+            }
+        }

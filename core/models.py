@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
-from datetime import datetime
 
 ###################################################################################################
 # Banco Equipamento:
@@ -117,8 +116,7 @@ class Detalhe(models.Model):
     numTemperaturaDeta = models.DecimalField('Temperatura', max_digits=4, decimal_places=1)
     indVirouDeta = models.BooleanField('Virou?')
     indTombouDeta = models.BooleanField('Tombou?')
-    datDateDeta = models.DateField('Data', default=datetime.now())
-    #imeiEquipamento = models.CharField('IMEI do Equipamento', max_length=22)
+    imeiEquipamento = models.CharField('IMEI do Equipamento', max_length=22)
     viagem = models.ForeignKey('Viagem', related_name='detalhes', on_delete=models.CASCADE)
 
     def __str__(self):
