@@ -6,9 +6,11 @@
   <h2><i class="glyphicon glyphicon-plane"></i> Viagens</h2>
   <div class="row">
     <div class="col-sm-12">
-      <div class="btn-group">
-        <a href="{% url 'viagem_criar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-plus"></span> Novo </a>
-      </div>
+        <div class="btn-group">
+            <a href="{% url 'viagem_criar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-plus"></span> Novo </a>
+            <a href="{% url 'viagem_exportar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-download"></span> Exportar </a>
+        </div>
+
     </div>
   </div>
   <hr>
@@ -36,7 +38,7 @@
         <td>{{viagem.localChegada}}</td>
         <td>{{viagem.caixa}}</td>
         <td>{{viagem.equipamento}}</td>
-        <td>{{viagem.status.dscStatus}}</td>
+        <td>{{viagem.status}}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -52,4 +54,3 @@
   });
 </script>
 {% endblock %}
-

@@ -1,22 +1,46 @@
 
 $(function () {
     $(document).ready(function() {
-        //# Mascara para datas
+        //Mascara para datas
         $(".date").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
 
-        //# Mascara para Imei Sim Card
+        //Mascara para Equipamentos
+        $(".eq_mask")
+        .mask("aa-999",{placeholder:"EQ-___"})
+        .focusout(function (event) {
+            var target, eq_mask, element;
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+            eq_mask = target.value.replace(/\D/g, '');
+            element = $(target);
+            element.unmask();
+            lement.mask("aa-999");
+        });
+
+        //Mascara para Caixas
+        $(".cx_mask")
+        .mask("aa-999",{placeholder:"CX-___"})
+        .focusout(function (event) {
+            var target, cx_mask, element;
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+            cx_mask = target.value.replace(/\D/g, '');
+            element = $(target);
+            element.unmask();
+            lement.mask("aa-999");
+        });
+
+        //Mascara para Imei Sim Card
         $(".imeiSimCard")
         .mask("99999.99999.99999.99999-99")
         .focusout(function (event) {
-            var target, imeicel, element;
+            var target, imeicard, element;
             target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-            imeicel = target.value.replace(/\D/g, '');
+            imeicard = target.value.replace(/\D/g, '');
             element = $(target);
             element.unmask();
             element.mask("99999.99999.99999.99999-99");
         });
 
-        //# Mascara para Imei Rastreadores, celular, arduino;
+        //Mascara para Imei Rastreadores, celular, arduino;
         $(".imeiTracker")
         .mask("99999.99999.99999")
         .focusout(function (event) {
@@ -28,7 +52,7 @@ $(function () {
             element.mask("99999.99999.99999");
         });
 
-        //# Mascara para CEPs
+        //Mascara para CEPs
         $(".cep")
         .mask("99.999-999")
         .focusout(function (event) {
@@ -40,7 +64,7 @@ $(function () {
             element.mask("99.999-999");
         });
 
-        //# Mascara para telefones Fixo ou Celular;
+        //Mascara para telefones Fixo ou Celular;
         $(".phone")
             .mask("(99) 99999-999?9")
             .focusout(function (event) {
@@ -56,7 +80,7 @@ $(function () {
                 }
             });
 
-            //# Mascara para limpar campos relativos a CEPs
+            //Mascara para limpar campos relativos a CEPs
         function limpa_formulário_cep() {
             // Limpa valores do formulário de cep.
             $("#id_logradouro").val("");

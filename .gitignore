@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -100,9 +101,15 @@ ENV/
 # mypy
 .mypy_cache/
 
-
 # SqLite DataBase#
 db.sqlite3
+bkp_db.sqlite3
 
-#VSCode settings
+#VSCode
 .vscode/
+
+#Files Folders
+media/
+testeexp/
+uploads/
+_uploloads/

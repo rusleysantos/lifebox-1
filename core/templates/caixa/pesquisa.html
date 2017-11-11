@@ -9,13 +9,26 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="btn-group">
-        <a href="{% url 'caixa_criar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-plus"></span> Novo</a>
+        <a href="{% url 'caixa_criar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-plus"></span> Novo </a>
+        <a href="{% url 'caixa_exportar' %}" class="btn btn-success my-2 my-sm-0"><span class="fa fa-download"></span> Exportar </a>
+      </div>
+
+      <div class="btn-group">
+        <!--
+        <form action="#" method="post" enctype="multipart/form-data">{% csrf_token %}
+          <input class="btn btn-success my-2 my-sm-0" type="file" accept=".csv" text="Importar" name="csv_file" />
+          <a href="{% url 'caixa_importar' %}" type="submit" name="csv_file" class="btn btn-success my-2 my-sm-0"><span class="fa fa-download"></span> Importar </a>
+        </form>
+      -->
+      <form enctype="multipart/form-data" method="post" action=".">
+        {{ form }}
+    </form>
       </div>
     </div>
   </div>
   <hr>
-  <table id="busca" class="display nowrap" cellspacing="0" width="100%">
-    <thead>
+  <table id="busca" class="display nowrap" ordering="False" cellspacing="0" width="100%">
+    <thead >
       <tr>
         <th>Id</th>
         <th>Identificação da caixa</th>

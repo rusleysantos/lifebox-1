@@ -1,10 +1,8 @@
 """
-WSGI config for lifeboxproject project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
+Configuração WSGI para a função de uploads (carregar arquivos).
+Ele expõe o WSGI chamado como uma variável de nível de módulo chamada `` application``.
+Para obter mais informações sobre este arquivo, consulte
+https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
 import os
@@ -16,5 +14,3 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lifeboxproject.settings")
 # Heroku
 application = get_wsgi_application()
 # application = DjangoWhiteNoise(application)
-
-

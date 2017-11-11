@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load bootstrap4 %}
+{% block title %}LifeBox - Listagem de Caixas {% endblock %}
+{% block custom_js %}
+<!--Este bloco é destinado a biblioteca datatables-->
+
+{% endblock%}
+
+{% block content %}
+<div class="jumbotron" >
+  <h2><i class="glyphicon glyphicon-hdd"></i> Importar</h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="btn-group">
+
+        <form class="btn btn-success" action="{% url 'importa_arquivo' %}"method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" name="myfile" accept=".csv, .xls, .xlsx" required>
+          <button type="submit">Carregar</button>
+        </form>
+
+      </div>
+
+    <hr>
+  {% if uploaded_file_url %}
+    <p> Arquivo carregado com sucesso em: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
+</div>
+{% endblock %}

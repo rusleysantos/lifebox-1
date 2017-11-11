@@ -7,7 +7,18 @@
     <div class="col-sm-12">
       <div class="btn-group">
         <a href="{% url 'equipamento_criar' %}" class="btn btn-success my-2 my-sm-0"><span class=" fa fa-plus"></span> Novo </a>
+        <a href="{% url 'equipamento_exportar' %}" class="btn btn-success my-2 my-sm-0"><span class=" fa fa-download"></span> Exportar </a>
+
+        <form class="btn btn-success" action="{% url 'equipamento_importar' %}"method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" name="myfile" accept=".csv, .xls, .xlsx" required>
+          <button type="submit">Carregar</button>
+        </form>
+
       </div>
+
+
+
     </div>
   </div>
   <hr>
@@ -23,14 +34,14 @@
       </tr>
     </thead>
     <tbody>
-      {% for equipamento in equipamentosx %}
+      {% for equipamento in equipamentos %}
         <tr>
           <td>
 						<a href="{% url 'equipamento_pesquisar' %}{{equipamento.id}}">
 							<span class="glyphicon glyphicon-edit"></span>{{equipamento.id}}
 						</a>
 					</td>
-          <td>{{equipamento.nome}}</td>
+          <td>{{equipamento.idEquipamento}}</td>
           <td>{{equipamento.imeiEquipamento}}</td>
           <td>{{equipamento.telefone}}</td>
           <td>{{equipamento.operadora}}</td>

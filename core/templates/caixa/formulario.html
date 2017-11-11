@@ -3,10 +3,18 @@
 {% load staticfiles %}
 {% load bootstrap4 %}
 {% block title %}LifeBox - Nova Caixa{% endblock%}
+{% block custom_js %}
+  <script src="{% static 'js/mask/mascaras.js' %}"></script>
+  <script src="{% static 'js/mask/jquery.maskedinput.min.js' %}"></script>
+  <script src="{% static 'js/context/contador.js' %}"></script>
+{% endblock%}
 {% block content %}
+
+
 <div class="jumbotron">
   <h2><i class="glyphicon glyphicon-folder-close"></i> Adicionar Nova Caixa</h2>
-  <form action="#" method="post">
+
+  <form method="post">
     <div class="row">
       <div class="col-sm-12">
         <div class="btn-group">
@@ -15,29 +23,37 @@
         </div>
       </div>
     </div>
+
     <hr>
+
     {% csrf_token %}
     <div class="row">
-      <div class="col-sm-3">
-        {% bootstrap_field form.idCaixa%}
-      </div>
-      <div class="col-sm-7">
-        {% bootstrap_field form.autorizacao%}
-      </div>
-       <div class="col-sm-2">
-        {% bootstrap_field form.corCaixa%}
+      <div class="col-sm-2">{% bootstrap_field form.idCaixa%}</div>
+      <div class="col-sm-3">{% bootstrap_field form.autorizacao%}</div>
+      <div class="col-sm-2">{% bootstrap_field form.corCaixa%}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">{% bootstrap_field form.informacaoAdicional%}
+      <font size="2p"><p class="text-right"> <span id="spcontando" ></span><span id="sprestante" >.</span></p></font>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-3">{% bootstrap_field form.createdEm%}</div>
+      <div class="col-sm-2">{% bootstrap_field form.createdPor%}</div>
+    </div>
+
     <div class="row">
       <div class="col-sm-12">
-        {% bootstrap_field form.informacaoAdicional%}
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar</button>
+          <a href="{% url 'caixa_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar</a>
+        </div>
       </div>
     </div>
-    <div class="btn-group">
-      <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar</button>
-      <a href="{% url 'caixa_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar</a>
-    </div>
+
   </form>
 </div>
-{% endblock %}
 
+{% endblock %}

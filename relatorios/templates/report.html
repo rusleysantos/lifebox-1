@@ -1,28 +1,143 @@
 {% extends "base.html" %}
 <!---->
-{% load account_tags %}
+{% load account_tags %} {% load staticfiles %}
 <!---->
 {% load bootstrap4 %}
 <!---->
 {% block title %}LifeBox - Mapas {% endblock %}
 <!---->
+
+{% block custom_js %}
+<!--Este bloco é destinado a biblioteca datatables-->
+<link rel="stylesheet" href="{% static '/js/datatables/jquery.dataTables.min.css' %}" >
+<script src="{% static '/js/datatables/jquery-1.12.4.js' %}"></script>
+<script src="{% static '/js/datatables/jquery.dataTables.min.js' %}"></script>
+<script>
+  $(document).ready(function() { $('#busca').DataTable({
+  "scrollY": 210, //ativa rolagem vertical - valor define o altura da tabela em px
+  "scrollX": true, // ativa barra de rolagem horizontal, quando necessário
+  "scrollCollapse": true, // não sei, ainda
+  "paging": true, // ativa pagnação da tabela
+  "ordering": false,
+  "aLengthMenu": [[05, 10, 25, 50, 75, 100, -1], [05, 10, 25, 50, 75, 100, "All"]], // opções para quantidade de linhas exibidas
+  "iDisplayLength": 10, // padrão para inicio da tabela esta função não funciona com stateSave =true
+
+  stateSave: true, // permite salvar a ultima pesquisa realizada.
+
+  "language": {
+    "decimal": ",",
+    "thousands": ".",
+    "sEmptyTable": "Nenhum registro encontrado",
+    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sInfoThousands": ".",
+    "sLengthMenu": "_MENU_ resultados por página",
+    "sLoadingRecords": "Carregando...",
+    "sProcessing": "Processando...",
+    "sZeroRecords": "Nenhum registro encontrado",
+    "sSearch": "Pesquisar",
+    "oPaginate": {
+        "sNext": "Próximo",
+        "sPrevious": "Anterior",
+        "sFirst": "Primeiro",
+        "sLast": "Último"
+                  },
+    "oAria": {
+        "sSortAscending": ": Ordenar colunas de forma ascendente",
+        "sSortDescending": ": Ordenar colunas de forma descendente"
+              }
+            }
+ } ); } );
+</script>
+{% endblock%}
+
 {% block content %}
 <div class="jumbotron">
-  <form action="#" method="post">
-    <div class="row">
-      <div class="col-sm-12">
+  <fieldset>
+    <legend>Tela de Relatorios</legend>
+      <form method="post" class="form-group" action="{% url 'exibir_relatorios' %}">
+        {% csrf_token %}
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="caixa" class="form-text">Caixa:</label>
+            <select class="custom-select col-md-12" name="caixa">
+              <option class="form-control"</option>
+              {%for caixa in caixas%}
+              <option class="form-control" value="{{caixa.id}}">{{caixa.idCaixa}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label for="equipamento" class="form-text">Equipamento:</label>
+            <select class="custom-select col-md-12" name="equipamento">
+              <option class="form-control"></option>
+              {%for equipamento in equipamentos%}
+              <option class="form-control" value="{{equipamento.id}}">{{equipamento.nome}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
 
-      </div>
-    </div>
-    <hr> {% csrf_token %}
-
-    <fieldset>
-      <legend>Tela de Relatorios</legend>
-
-
-
-    </fieldset>
-  </form>
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="hospital_saida" class="form-text">Saída:</label>
+            <select class="custom-select col-md-12" name="hospital_saida">
+              <option class="form-control"></option>
+              {%for hospital_saida in hospitais%}
+              <option class="form-control" value="{{hospital_saida.id}}">{{hospital_saida.nome}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label for="hospital_chegada" class="form-text">Chegada:</label>
+            <select class="custom-select col-md-12" name="hospital_chegada">
+              <option class="form-control"></option>
+              {%for hospital_chegada in hospitais%}
+              <option class="form-control" value="{{hospital_chegada.id}}">{{hospital_chegada.nome}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-2 offset-md-10">
+            <input type="submit" id="gerar_relatorio" class="btn btn-primary" value="Gerar relatório">
+          </div>
+        </div>
+      </form>
+      
+      <table id="busca" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Local de Partida</th>
+            <th>Local de Chegada</th>
+            <th>Caixa</th>
+            <th>Equipamento</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for viagem in viagens %}
+          <tr>
+            <td>
+              <a href="{% url 'viagem_pesquisar' %}{{viagem.id}}">
+                <span class="glyphicon glyphicon-edit"> </span>{{viagem.id}}
+              </a>
+            </td>
+            <td>{{viagem.localPartida}}</td>
+            <td>{{viagem.localChegada}}</td>
+            <td>{{viagem.caixa}}</td>
+            <td>{{viagem.equipamento}}</td>
+            <td>{{viagem.status.dscStatus}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </fieldset>
 </div>
 
 {% endblock %}

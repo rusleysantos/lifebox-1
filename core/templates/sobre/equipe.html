@@ -2,18 +2,130 @@
 {% load staticfiles %}
 {% load bootstrap4 %}
 {% block title %}LifeBox - Equipe{% endblock%}
+{% block custom_css %}
+<style rel="stylesheet" type="text/css">
+    strong {color: #f00;}
+    p {font-family: serif; font-size: 14px; }
+    abbr {}
+
+
+</style>
+{% endblock%}
 {% block content %}
 <div class="jumbotron">
+  <!-- *****************************ALUNOS DA TURMA DE DESENVOLVIMENTO DE SISTEMAS WEB*********************************************************** -->
+  <div>
+    <h2> Desenvolvedores do Sistema </h2>
+    <h3> Turma de Desenvolvimento Web 2017/2... </h3>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="{% static 'img/David.jpg' %}" alt="David" class="img-thumbnail">
+      </div>
+      <div class="col-sm-9">
+        <address>
+          <strong>David de Moura Marques</strong><br>
+          <b>Formação: </b>
+          <p>
+          Técnica em Processamenos de Dados - IFES Campus Serra (dez/15)</br>
+          Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - IFES Campus Serra (dez/17)</br>
+          </p>
+        </address>
+
+        <address>
+          <abbr title="contato" class="fa fa-envelope-open-o">
+            <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+          </abbr>
+        </address>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-9 text-right">
+        <address>
+          <strong>Márcio Ribeiro</strong><br>
+          <b>Formação: </b>
+          <p>
+          Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+          Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+          Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+          Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - IFES Campus Serra (dez/17)</br>
+          </p>
+          <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+            <a href="mailto:marcio_ribeiro@hotmail.com"> marcio_ribeiro@hotmail.com</a>
+          </abbr>
+        </address>
+      </div>
+      <div class="col-sm-3">
+        <img src="{% static 'img/Marcio.jpg' %}" alt="Márcio" class="img-thumbnail">
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="{% static 'img/Rusley.jpg' %}" alt="Rusley" class="img-thumbnail">
+      </div>
+      <div class="col-sm-9">
+        <address>
+          <strong>Rusley Silva Santos</strong><br>
+          <b>Formação: </b>
+          <p>
+          Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+          Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+          Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+          Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+          </p>
+          <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+            <a href="mailto:rusley_silva@hotmail.com"> rusley_silva@hotmail.com</a>
+          </abbr>
+        </address>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-9 text-right">
+        <address>
+          <strong>Wilhas Mendes de Souza</strong><br>
+          <b>Formação: </b>
+          <p>
+          Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+          Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+          Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+          Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+          </p>
+          <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+            <a href="mailto:wilhsms@gmail.com"> wilhsms@gmail.com</a>
+          </abbr>
+        </address>
+      </div>
+      <div class="col-sm-3">
+        <img src="{% static 'img/Wilhas.jpg' %}" alt="Wilhas" class="img-thumbnail">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- *****************************ALUNOS DA TURMA DE ENGENARIA*********************************************************** -->
+<div>
+  <h2> Idealizadores e clientes do Projeto </h2>
+  <h3> Turma de Engenharia de .... ano </h3>
+  <hr>
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Antonione.jpg' %}" alt="Antonione" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Antonione Pinho</strong><br>
+        <b>Formação: </b>
+        <p>
+        Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+        Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+        Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+        Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+        </p>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
   </div>
@@ -21,28 +133,41 @@
   <div class="row">
     <div class="col-sm-9 text-right">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Irisson Maximus</strong><br>
+        <b>Formação: </b>
+        <p>
+        Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+        Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+        Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+        Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+        </p>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Irisson.jpg' %}" alt="Irisson" class="img-thumbnail">
     </div>
   </div>
   <hr>
-<!-- -->
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Lucas.jpg' %}" alt="Lucas" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Lucas ALmeida</strong><br>
+        <b>Formação: </b>
+        <p>
+        Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+        Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+        Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+        Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+        </p>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
   </div>
@@ -50,28 +175,41 @@
   <div class="row">
     <div class="col-sm-9 text-right">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Matheus Barbosa</strong><br>
+        <b>Formação: </b>
+        <p>
+        Técnica em Eletricidade Industrial - Centro de Educação Profissional Jones dos Santos Neves (dez/94)</br>
+        Técnica em Processamenos de Dados - Centro Educacional de Laranjeiras (dez/97)</br>
+        Graduação em Gestão de Tecnologia em Sistemas de Informação - Faculdade Novo Milênio ( jul/08)</br>
+        Especialista Técnico em Desenvolvimento de Sistemas Web com Metodologias Ágeis - Ifes Campus Serra (dez/17)</br>
+        </p>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Matheus.jpg' %}" alt="Matheus" class="img-thumbnail">
     </div>
   </div>
   <hr>
-<!-- -->
+  <!-- *****************************MESTRES E ORIENTADORES*********************************************************** -->
+  <div>
+    <h2> Mestres e Oreintadores do Projeto </h2>
+    <h3> IFES - Campus Serra </h3>
+    <hr>
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Carlos.jpg' %}" alt="Carlos" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Carlos Lins</strong><br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
   </div>
@@ -79,28 +217,31 @@
   <div class="row">
     <div class="col-sm-9 text-right">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Edilson Luiz do Nascimento</strong><br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Edilson.jpg' %}" alt="Edilson" class="img-thumbnail">
     </div>
   </div>
   <hr>
-<!-- -->
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Elisangela.jpg' %}" alt="Elisangela" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Elizangela Campos da Rosa Broeto</strong><br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:elizrosa@ifes.edu.br"> elizrosa@ifes.edu.br</a>
+        </abbr>
       </address>
     </div>
   </div>
@@ -108,28 +249,31 @@
   <div class="row">
     <div class="col-sm-9 text-right">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Fabiano Borges Rui</strong><br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Fabiano.jpg' %}" alt="Fabiano" class="img-thumbnail">
     </div>
   </div>
   <hr>
-<!-- -->
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Moises.jpg' %}" alt="Moises" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Moises Savedra Omena</strong>(Orientador do Projeto)<br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
   </div>
@@ -137,162 +281,34 @@
   <div class="row">
     <div class="col-sm-9 text-right">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Paulo Sérgio Santos Júnior</strong>(Orientador do Projeto)<br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Paulo.jpg' %}" alt="Paulo" class="img-thumbnail">
     </div>
   </div>
   <hr>
-<!-- -->
   <div class="row">
     <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
+      <img src="{% static 'img/Rodrigues.jpg' %}" alt="Rodrigues" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
       <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
+        <strong>Rodrigues Fernandes Calhau</strong><br>
+        <b>Disiciplina: </b>  <br>
+        <b>Formação: </b>  <br>
+        <abbr title="contato" class="fa fa-envelope-open-o" aria-hidden="true">
+          <a href="mailto:mouradavid8@gmail.com"> mouradavid8@gmail.com</a>
+        </abbr>
       </address>
     </div>
   </div>
   <hr>
-  <div class="row">
-    <div class="col-sm-9 text-right">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-  </div>
-  <hr>
-<!-- -->
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-    <div class="col-sm-9">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-9 text-right">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-  </div>
-  <hr>
-<!-- -->
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-    <div class="col-sm-9">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-9 text-right">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-  </div>
-  <hr>
-<!-- -->
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-    <div class="col-sm-9">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-9 text-right">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-  </div>
-  <hr>
-<!-- -->
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-    <div class="col-sm-9">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-9 text-right">
-      <address>
-        <strong>Twitter, Inc.</strong><br>
-        1355 Market Street, Suite 900<br>
-        San Francisco, CA 94103<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-      </address>
-    </div>
-    <div class="col-sm-3">
-      <img src="https://dummyimage.com/759x779" alt="João" class="img-thumbnail">
-    </div>
-  </div>
-  <hr>
-<!-- -->
 </div>
 {% endblock %}

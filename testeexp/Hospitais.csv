@@ -1,0 +1,13 @@
+id,nome,telefone,nomeResponsavel,emailResponsavel,cep,logradouro,bairro,cidade,uf,createdEm,createdPor
+1,HOSPITAL COPA D'OR,(21) 30034-330,Alex Gonçalves Gaspar,alex.gaspar@copador.com.br,22.031-011,Rua Figueiredo Magalhães,Copacabana,Rio de Janeiro,RJ,2017-11-03 17:41:26+00:00,1
+2,HOSPITAL VILA VELHA,(27) 25368-888,Romulo Guedes,romulo.guedes@hvv.com.br,29.100-150,Rua Coronel Ferraz Coutinho,Centro de Vila Velha,Vila Velha,ES,2017-11-03 17:41:35+00:00,1
+3,HOSPITAL SANTA MONICA,(21) 30034-330,André Costa,andre.costa@hsm.com.br,29.101-045,Rua Quinze de Novembro,Praia da Costa,Vila Velha,ES,2017-11-03 17:41:44+00:00,1
+4,HOSPITAL PRAIA DA COSTA,(27) 98523-4125,Fabiana Santos,fabiana.santos@hpc.com.br,29.107-200,Rua Antônio Ataíde,Divino Espírito Santo,Vila Velha,ES,2017-11-03 17:41:53+00:00,1
+5,CLINICA DOS ACIDENTADOS,(21) 85236-4330,Gedeilson Goes,gedeilson.goes@cda.com.br,29.120-250,Rua Vivaldo José Marçal,Aribiri,Vila Velha,ES,2017-11-03 17:41:12+00:00,1
+6,SANTA CASA,(27) 12542-5231,Marcel Greick,marcel.greick@santacasa.com.br,29.108-048,Rua João Antônio Afonso,Santa Inês,Vila Velha,ES,2017-11-03 17:41:21+00:00,1
+7,APART HOSPITAL DA SERRA,(21) 58236-4330,Kaio Pinto,kaio.pinto@aparthospital.com.br,29.075-101,Travessa João Barbosa,Goiabeiras,Vitória,ES,2017-11-03 17:41:40+00:00,1
+8,HOSPITAL DÓRIO SILVA,(27) 35264-174,Sebastiana Silva,sebastiana.silva@doriosilva.com.br,29.220-150,Rua B Quinze,Portal,Guarapari,ES,2017-11-03 17:41:09+00:00,1
+9,HOSPITAL SÃO LUCAS,(21) 42514-330,Gustavo Borges,gustavo.borges@saolucas.es.gov.br,29.010-100,Rua Dionísio Rosendo,Centro,Vitória,ES,2017-11-03 17:41:00+00:00,1
+10,CIAS – VITORIA,(27) 25142-5233,Giovana Antonelli,giovana.antonelli@cias.com.br,29.115-500,Rua Félix Gonçalves,Ilha das Flores,Vila Velha,ES,2017-11-03 17:41:10+00:00,1
+11,CIAS – COLATINA,(21) 53234-330,Silvia Saint,silvia.saint@cias.com.br,29.700-010,Avenida Getúlio Vargas,Centro,Colatina,ES,2017-11-03 17:41:11+00:00,1
+12,CIAS – CACHOEIRO DE ITAPEMIRIM,(27) 99852-5266,Debora Secco,debora.secco@cias.com.br,29.700-100,Rua Michel Dalla,Centro,Colatina,ES,2017-11-03 17:41:12+00:00,1

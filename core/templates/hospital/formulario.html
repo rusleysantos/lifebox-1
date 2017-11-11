@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
 {% load bootstrap4 %}
 {% block title %}LifeBox - Novo Hospital{% endblock%}
@@ -20,51 +21,42 @@
         </div>
       </div>
     </div>
-    <hr> 
+
+    <hr>
+
     {% csrf_token %}
+    <div class="row">
+      <div class="col-sm-4">{% bootstrap_field form.nome%}</div>
+      <div class="col-sm-2">{% bootstrap_field form.telefone%}</div>
+      <div class="col-sm-3">{% bootstrap_field form.nomeResponsavel%}</div>
+      <div class="col-sm-3">{% bootstrap_field form.emailResponsavel%}</div>
+    </div>
 
     <div class="row">
-      <div class="col-sm-6">
-        {% bootstrap_field form.nome%}
-      </div>
-      <div class="col-sm-6">
-        {% bootstrap_field form.telefone%}
-      </div>
+      <div class="col-sm-3">{% bootstrap_field form.cep%}</div>
+      <div class="col-sm-5">{% bootstrap_field form.logradouro%}</div>
+      <div class="col-sm-4">{% bootstrap_field form.bairro%}</div>
     </div>
+
     <div class="row">
-      <div class="col-sm-6">
-        {% bootstrap_field form.nomeResponsavel%}
-      </div>
-      <div class="col-sm-6">
-        {% bootstrap_field form.emailResponsavel%}
-      </div>
+      <div class="col-sm-4">{% bootstrap_field form.cidade%}</div>
+      <div class="col-sm-1">{% bootstrap_field form.uf%}</div>
     </div>
-    <hr>
+
     <div class="row">
-      <div class="col-sm-3">
-        {% bootstrap_field form.cep%}
-      </div>
+      <div class="col-sm-4">{% bootstrap_field form.createdEm %}</div>
+      <div class="col-sm-3">{% bootstrap_field form.createdPor %}</div>
     </div>
+
     <div class="row">
       <div class="col-sm-12">
-        {% bootstrap_field form.logradouro%}
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar</button>
+          <a href="{% url 'hospital_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar</a>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-5">
-        {% bootstrap_field form.bairro%}
-      </div>
-      <div class="col-sm-5">
-        {% bootstrap_field form.cidade%}
-      </div>
-      <div class="col-sm-2">
-        {% bootstrap_field form.uf%}
-      </div>
-    </div>
-    <div class="btn-group">
-      <button type="submit" class="btn btn-success my-2 my-sm-0"><span class="fa fa-check"></span> Salvar</button>
-      <a href="{% url 'hospital_pesquisar' %}" class="btn btn-secondary my-2 my-sm-0"><span class="fa fa-undo"></span> Voltar</a>
-    </div>
+
   </form>
 </div>
 
